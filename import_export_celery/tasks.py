@@ -53,7 +53,7 @@ def _run_import_job(import_job, dry_run=True):
     try:
         data = import_job.file.read()
         if not import_format.is_binary():
-            data = force_str(data, "utf8")
+            data = force_str(data, "utf-8-sig")
         dataset = import_format.create_dataset(data)
     except UnicodeDecodeError as e:
         import_job.errors += (
